@@ -9,10 +9,22 @@
 
   <style>
     .rectangle {
-        height: 150px;
-        width: 100%;
-        background-color: #070088ca;
-        }
+      height: 150px;
+      width: 100%;
+      background-color: #070088ca;
+    }
+    .button{
+      width: 200px;
+      height: 40px;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      background-color: #070088a5;
+    }
+    .button:hover{
+      border-radius: 15px;
+      background-color: #07008885;
+    }
 
   </style>
     </head>
@@ -27,10 +39,10 @@
 
       <form style="background-color:whitesmoke; width:50%; margin: 30px;border-radius: 15px;position: fixed;">
         <h4 style="margin: 10px; margin-top: 10px;">Enter an ingredient you would like to cook with</h4>
-        <input class="form-check-input shadow-sm" style="width: 80%;height: 30px; margin-left: 10px;"></input>
+        <input id="ingredient" class="form-check-input shadow-sm" style="width: 80%;height: 30px; margin-left: 10px;"></input>
 
         <h4 style="margin: 10px; margin-top: 10px;">Select a cuisine you would like to eat</h4>
-        <select class="form-select shadow-sm"style="margin: 10px;width: 80%;">
+        <select id="cuisine" class="form-select shadow-sm" style="margin: 10px;width: 80%;">
           <option value="Algerian">Algerian</option>
           <option value="American">American</option>
           <option value="Argentinian">Argentinian</option>
@@ -71,7 +83,7 @@
         </select>
 
         <h4 style="margin: 10px; margin-top: 10px;">Select a category of food</h4>
-        <select class="form-select shadow-sm" style="margin: 10px;width: 80%;">
+        <select id="category" class="form-select shadow-sm" style="margin: 10px;width: 80%;">
           <option value="Beef">Beef</option>
           <option value="Breakfast">Breakfast</option>
           <option value="Chicken">Chicken</option>
@@ -87,7 +99,7 @@
           <option value="Vegan">Vegan</option>
           <option value="Vegetarian">Vegetarian</option>
         </select>
-      <button class="button">Test</button>
+        <button class="button" style="margin: 10px;margin-left: calc(50% - 100px);">Find my meal(s)!</button>
       </form>
     </body>
 </html>
