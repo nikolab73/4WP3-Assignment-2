@@ -104,35 +104,53 @@
 
       <div style="left: calc(50% + 15px); width: calc(50% - 45px); height: 600px; background-color: whitesmoke; position: fixed; top: 180px; border-radius: 15px;">
         <h4 style="margin: 10px; margin-top: 10px;">Results:</h4>
+        <div id="results" style="margin: 10px;"></div>
         
       </div>
 
       <script>
-        document.querySelector('#submit').addEventListener('click', () => {
-          const ingredient = document.querySelector('#ingredient').value;
-          const cuisine = document.querySelector('#cuisine').value;
-          const category = document.querySelector('#category').value;
+  document.querySelector('#submit').addEventListener('click', () => {
+    const ingredient = document.querySelector('#ingredient').value;
+    const cuisine = document.querySelector('#cuisine').value;
+    const category = document.querySelector('#category').value;
 
-              console.log('Values:', ingredient, cuisine, category);
+    console.log('Fetching with:', ingredient, cuisine, category);
 
-          
-          fetch('http://localhost:3000/api/search', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ ingredient, cuisine, category })
-          })
-          .then(response => response.json())
-          .then(data => console.log(data));
+    fetch('http://localhost:3000/api/search', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ ingredient, cuisine, category })
+    })
+    .then(response => response.json())
+    .then(data => {
+      console.log('Full data:', data);
+      
+      if (data[0]) {
+        console.log('First meal:', data[0]);
+        console.log('strSource:', data[0].strSource);
+      }
+      
+      let response = '';
+      
+      if (data.length === 0) {
+        response = '<p>No meals found</p>';
+      } else {
+        data.forEach(meal => {
+          response += `
+            <div style="border: 1px solid #ccc; padding: 10px; margin: 10px; border-radius: 8px;">
+              <h4>${meal.strMeal}</h4>
+              <img src="${meal.strMealThumb}" width="150" style="border-radius: 8px;">
+              <br>
+              <a href="${meal.strSource || '#'}" target="_blank">View Recipe</a>
+            </div>
+          `;
         });
-
-        let response = '';
-        if(data.length === 0){
-          response = 'No meals found. Please try again with different parameters.'
-        } else {
-          data.forEach(meal => {
-            response += meal.strMeal + '\n';
-          });
-        }
-      </script>
+      }
+      
+      document.querySelector('#results').innerHTML = response;
+    })
+    .catch(error => console.log('Error:', error));
+  });
+</script>
     </body>
 </html>
