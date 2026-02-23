@@ -37,9 +37,9 @@
         </div>
       </div>
 
-      <form style="background-color:whitesmoke; width:50%; margin: 30px;border-radius: 15px;position: fixed">
+      <form style="background-color:whitesmoke; width:calc(50% - 45px); margin: 30px;border-radius: 15px;position: fixed">
         <h4 style="margin: 10px; margin-top: 10px;">Enter an ingredient you would like to cook with</h4>
-        <input id="ingredient" class="form-check-input shadow-sm" style="width: 80%;height: 30px; margin-left: 10px;"></input>
+        <input id="ingredient" class="form-control shadow-sm" style="width: 80%;height: 35px; margin-left: 10px;"></input>
 
         <h4 style="margin: 10px; margin-top: 10px;">Select a cuisine you would like to eat</h4>
         <select id="cuisine" class="form-select shadow-sm" style="margin: 10px;width: 80%;">
@@ -102,23 +102,28 @@
       </form>
       <button id="submit" class="button shadow-sm" style="margin-top: 320px;margin-left: 30px;">Find my meal(s)!</button>
 
+      <div style="left: calc(50% + 15px); width: calc(50% - 45px); height: 600px; background-color: whitesmoke; position: fixed; top: 180px; border-radius: 15px;">
+        <h4 style="margin: 10px; margin-top: 10px;">Results:</h4>
+        
+      </div>
+
       <script>
-  document.querySelector('#submit').addEventListener('click', () => {
-    const ingredient = document.querySelector('#ingredient').value;
-    const cuisine = document.querySelector('#cuisine').value;
-    const category = document.querySelector('#category').value;
+        document.querySelector('#submit').addEventListener('click', () => {
+          const ingredient = document.querySelector('#ingredient').value;
+          const cuisine = document.querySelector('#cuisine').value;
+          const category = document.querySelector('#category').value;
 
-        console.log('Values:', ingredient, cuisine, category);
+              console.log('Values:', ingredient, cuisine, category);
 
-    
-    fetch('http://localhost:3000/api/search', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ ingredient, cuisine, category })
-    })
-    .then(response => response.json())
-    .then(data => console.log(data));
-  });
-</script>
+          
+          fetch('http://localhost:3000/api/search', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ ingredient, cuisine, category })
+          })
+          .then(response => response.json())
+          .then(data => console.log(data));
+        });
+      </script>
     </body>
 </html>
