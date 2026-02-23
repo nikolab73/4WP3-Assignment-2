@@ -19,12 +19,18 @@ app.post('/api/search', (req, res) => {
       const categoryNames = new Set(categoryData.meals?.map(m => m.strMeal) || []);
       const areaNames = new Set(areaData.meals?.map(m => m.strMeal) || []);
       
-      const results = (ingredientData.meals || []).filter(meal => 
+      let results = (ingredientData.meals || []).filter(meal => 
         categoryNames.has(meal.strMeal) && areaNames.has(meal.strMeal)
       );
       
-      res.json(results);
+      // Fetch full details for each result to get strSource
+      return Promise.all(results.map(meal =>
+        fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${meal.idMeal}`)
+          .then(r => r.json())
+          .then(d => d.meals[0])
+      ));
     })
+    .then(fullMeals => res.json(fullMeals))
     .catch(error => res.json({ error: 'Failed to fetch meals' }));
 });
 
