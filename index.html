@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
+  <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Assignment 2</title>
@@ -124,6 +124,15 @@
           .then(response => response.json())
           .then(data => console.log(data));
         });
+
+        let response = '';
+        if(data.length === 0){
+          response = 'No meals found. Please try again with different parameters.'
+        } else {
+          data.forEach(meal => {
+            response += meal.strMeal + '\n';
+          });
+        }
       </script>
     </body>
 </html>
