@@ -16,18 +16,16 @@ app.post('/api/search', (req, res) => {
     fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?a=${cuisine}`).then(r => r.json())
   ])
     .then(([ingredientData, categoryData, areaData]) => {
-      console.log('Ingredient (pasta):', ingredientData.meals ? ingredientData.meals.length : 'NO MEALS');
-      console.log('Category (Pasta):', categoryData.meals ? categoryData.meals.length : 'NO MEALS');
-      console.log('Area (Italian):', areaData.meals ? areaData.meals.length : 'NO MEALS');
+      const categoryNames = new Set(categoryData.meals?.map(m => m.strMeal) || []);
+      const areaNames = new Set(areaData.meals?.map(m => m.strMeal) || []);
       
-
+      const results = (ingredientData.meals || []).filter(meal => 
+        categoryNames.has(meal.strMeal) && areaNames.has(meal.strMeal)
+      );
       
       res.json(results);
     })
-    .catch(error => {
-      console.log('Catch error:', error);
-      res.json({ error: 'Failed to fetch meals' });
-    });
+    .catch(error => res.json({ error: 'Failed to fetch meals' }));
 });
 
 app.listen(3000, () => {
