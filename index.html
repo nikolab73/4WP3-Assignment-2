@@ -37,7 +37,7 @@
         </div>
       </div>
 
-      <form style="background-color:whitesmoke; width:50%; margin: 30px;border-radius: 15px;position: fixed;">
+      <form style="background-color:whitesmoke; width:50%; margin: 30px;border-radius: 15px;position: fixed">
         <h4 style="margin: 10px; margin-top: 10px;">Enter an ingredient you would like to cook with</h4>
         <input id="ingredient" class="form-check-input shadow-sm" style="width: 80%;height: 30px; margin-left: 10px;"></input>
 
@@ -99,7 +99,26 @@
           <option value="Vegan">Vegan</option>
           <option value="Vegetarian">Vegetarian</option>
         </select>
-        <button class="button" style="margin: 10px;margin-left: calc(50% - 100px);">Find my meal(s)!</button>
       </form>
+      <button id="submit" class="button shadow-sm" style="margin-top: 320px;margin-left: 30px;">Find my meal(s)!</button>
+
+      <script>
+  document.querySelector('#submit').addEventListener('click', () => {
+    const ingredient = document.querySelector('#ingredient').value;
+    const cuisine = document.querySelector('#cuisine').value;
+    const category = document.querySelector('#category').value;
+
+        console.log('Values:', ingredient, cuisine, category);
+
+    
+    fetch('http://localhost:3000/api/search', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ ingredient, cuisine, category })
+    })
+    .then(response => response.json())
+    .then(data => console.log(data));
+  });
+</script>
     </body>
 </html>
