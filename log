@@ -1,0 +1,95 @@
+[33mcommit 3c5afb0cc25716e67fc47697aea0c026cef4fb5f[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m)[m
+Author: Nikola Bogdanovic <bogdanon@mcmaster.ca>
+Date:   Mon Feb 23 19:05:39 2026 -0500
+
+    finished UI design
+
+[33mcommit f2f672959717eba8ff7a14595a52a95fd9dcc1ec[m
+Author: Nikola Bogdanovic <bogdanon@mcmaster.ca>
+Date:   Mon Feb 23 18:54:56 2026 -0500
+
+    added functionality to retrieve full details of item from API
+
+[33mcommit 99829f17d9e0dbf70e10e1c2edaa1c91aa3fe7fa[m
+Author: Nikola Bogdanovic <bogdanon@mcmaster.ca>
+Date:   Mon Feb 23 18:43:32 2026 -0500
+
+    bug fixes and including recipe link to page
+
+[33mcommit eec91d638fb598adee5423169bd4496e98b7c7a9[m
+Author: Nikola Bogdanovic <bogdanon@mcmaster.ca>
+Date:   Mon Feb 23 18:28:14 2026 -0500
+
+    adding functionality to display multiple meals
+
+[33mcommit e55816f2b312676910482bb04c2b4c157c9e5a74[m
+Author: Nikola Bogdanovic <bogdanon@mcmaster.ca>
+Date:   Mon Feb 23 17:00:05 2026 -0500
+
+    added frame to present results
+
+[33mcommit 0e9d4e7cf28bf83c6adea4afc53a541f5bde7bd2[m
+Author: Nikola Bogdanovic <bogdanon@mcmaster.ca>
+Date:   Mon Feb 23 15:36:25 2026 -0500
+
+    Cleaned up backend and brought results to chrome console
+
+[33mcommit 072c2c7fb7881c4a44f393e5c54f58dfc1098932[m
+Author: Nikola Bogdanovic <bogdanon@mcmaster.ca>
+Date:   Mon Feb 23 14:58:38 2026 -0500
+
+    fetch results from API and attempt to display in console
+
+[33mcommit 7fa7524a2d38f7dc73334064b1120f33176fb6ce[m
+Author: Nikola Bogdanovic <bogdanon@mcmaster.ca>
+Date:   Mon Feb 23 14:54:46 2026 -0500
+
+    established POST to backend and added event listener for submit btn. Minor UI tweaks
+
+[33mcommit 4d11a4e7a7b6b62052094e8179dfa5aaef4ce8af[m
+Author: Nikola Bogdanovic <bogdanon@mcmaster.ca>
+Date:   Fri Feb 20 17:30:52 2026 -0500
+
+    added server initialization to server.js
+
+[33mcommit 29acd9e3a9e7453f5f1db30ee2ee69ec040c9f54[m
+Author: Nikola Bogdanovic <bogdanon@mcmaster.ca>
+Date:   Fri Feb 20 16:11:28 2026 -0500
+
+    added submit button and updated styling
+
+[33mcommit 0da609ea53c85ead32cd8c8a49328d09e5ea689f[m
+Author: Nikola Bogdanovic <bogdanon@mcmaster.ca>
+Date:   Thu Feb 19 19:45:29 2026 -0500
+
+    added dropdown menu for meal category
+
+[33mcommit 8372aeeaf1c0ce919eb69af4f5935df3d1bfc5ac[m
+Author: Nikola Bogdanovic <bogdanon@mcmaster.ca>
+Date:   Fri Feb 13 23:38:12 2026 -0500
+
+    Created rough form and added list of countries available (for chosen API)
+
+[33mcommit f9c1f8f9ad415b619c72e14d74548550c95f9d68[m
+Author: Nikola Bogdanovic <bogdanon@mcmaster.ca>
+Date:   Fri Feb 13 23:12:21 2026 -0500
+
+    added heading to page with styling
+
+[33mcommit 1c002f2c12b5bf6ec41a5a9847c11f3009097d00[m
+Author: Nikola Bogdanovic <bogdanon@mcmaster.ca>
+Date:   Fri Feb 13 22:21:23 2026 -0500
+
+    installed node js, npm, express and added server.js
+
+[33mcommit 2e9292ee645f8c67038342b50b08e8c1accc1641[m
+Author: Nikola Bogdanovic <bogdanon@mcmaster.ca>
+Date:   Fri Feb 13 20:55:45 2026 -0500
+
+    testing git
+
+[33mcommit ee5d795f7d3f22f8bfbdab62c436fab5809706dc[m
+Author: Nikola Bogdanovic <bogdanon@mcmaster.ca>
+Date:   Fri Feb 13 20:45:39 2026 -0500
+
+    Initial commit Assignment 2
