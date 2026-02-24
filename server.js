@@ -23,7 +23,6 @@ app.post('/api/search', (req, res) => {
         categoryNames.has(meal.strMeal) && areaNames.has(meal.strMeal)
       );
       
-      // Fetch full details for each result to get strSource
       return Promise.all(results.map(meal =>
         fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${meal.idMeal}`)
           .then(r => r.json())
